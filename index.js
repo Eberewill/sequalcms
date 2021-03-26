@@ -3,8 +3,6 @@ const cors = require("cors");
 const firebase = require("firebase");
 const path = require("path");
 
-const __dirname = path.resolve();
-
 firebase.initializeApp({
   apiKey: "AIzaSyCOkrcvQvTBf50-YbY5ALSFKvwIyWwI_J4",
   authDomain: "schoolverse.firebaseapp.com",
