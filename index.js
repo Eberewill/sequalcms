@@ -1,6 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const firebase = require("firebase");
+const path = require("path");
+
+const __dirname = path.resolve();
 
 firebase.initializeApp({
   apiKey: "AIzaSyCOkrcvQvTBf50-YbY5ALSFKvwIyWwI_J4",
@@ -18,6 +21,15 @@ module.exports = { firebase };
 const userRoutes = require("./routes/userRoutes");
 const authRoutes = require("./routes/authRout");
 const lpRoutes = require("./routes/lpRoutes");
+
+//documentationAsset
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/public")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "public", "index.html"))
+  );
+}
 
 //Database Connection
 const db = require("./config/database");
