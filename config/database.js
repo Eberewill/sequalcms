@@ -12,8 +12,8 @@ const { Sequelize } = require("sequelize");
     idle: 10000,
   },
 });*/
-var db = new Sequelize("willsprodweb", "postgres", "KTxYTugQbu0n0VYQsel7", {
-  host: "willsprodweb.cgq5cwzjj2ki.us-east-1.rds.amazonaws.com",
+var db = new Sequelize("awsdb", "conwilliams", "KTxYTugQbu0n0VYQsel7", {
+  host: "database-1.cgq5cwzjj2ki.us-east-1.rds.amazonaws.com",
   port: 5432,
   logging: console.log,
   maxConcurrentQueries: 100,
