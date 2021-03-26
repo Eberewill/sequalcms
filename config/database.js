@@ -19,7 +19,10 @@ var db = new Sequelize("awsdb", "conwilliams", "KTxYTugQbu0n0VYQsel7", {
   maxConcurrentQueries: 100,
   dialect: "postgres",
   dialectOptions: {
-    ssl: "Amazon RDS",
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
   },
   pool: { maxConnections: 5, maxIdleTime: 30 },
   language: "en",
