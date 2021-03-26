@@ -1,49 +1,60 @@
-## **Show User**
+#
 
-Returns json data about a single user.
+## Express, sequelize Postgress DB Simple CMS API with Firebase Auth
 
-- **URL**
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-  /users/:id
+## Features
 
-- **Method:**
+- Create users from one endpoint with firbase-admin
+- Login User endpoin with Firebase auth
+- Midleware function to decode user token
+- CRUD Feature with sequelize Postgress DB
+- Protectected routing
 
-  `GET`
+## API Endpoints
 
-- **URL Params**
+- https://sequelcms.herokuapp.com/api/landing : GET all landing pages
+- https://sequelcms.herokuapp.com/api/landing : POST CREATE A LP
+- https://sequelcms.herokuapp.com/api/landing/id : PUT UPDATE LP Data (Protected)
 
-  **Required:**
+## Authentication (firebase auth with email & Pw)
 
-  `id=[integer]`
+-# Register
 
-- **Data Params**
+- https://sequelcms.herokuapp.com/api/auth/ : POST
 
-  None
+```js
+//user data
+{
+    "name": "Bode",
+    "email": "English@gmail.com",
+   "password": "helloworld"
 
-- **Success Response:**
+}
+```
 
-  - **Code:** 200 <br />
-    **Content:** `{ id : 12, name : "Michael Bloom" }`
+-#Login
 
-- **Error Response:**
+- https://sequelcms.herokuapp.com/api/auth/login : POST
 
-  - **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "User doesn't exist" }`
+```js
+//request body (returns a token you will use to hit protected routs if credential is correct)
+{
+        "email": "English@gmail.com",
+   "password": "helloworld"
 
-  OR
+}
+```
 
-  - **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "You are unauthorized to make this request." }`
+## Protected routes
 
-- **Sample Call:**
+- https://sequelcms.herokuapp.com/api/landing/ID : PUT
+  -# Updates Landing Page Data
 
-  ```javascript
-  $.ajax({
-    url: "/users/1",
-    dataType: "json",
-    type: "GET",
-    success: function (r) {
-      console.log(r);
+```js
+//
+ headers: {
+        authtoken: `YOUR_AUTH_TOKEN`,
     },
-  });
-  ```
+```
