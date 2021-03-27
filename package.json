@@ -1,13 +1,13 @@
 {
   "name": "codegig",
   "version": "1.0.0",
-  "description": "simple job find app for coders",
+  "description": "node express sequalize api with firebase auth and postgress",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "Vinesh",
+  "author": "Ebere",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
